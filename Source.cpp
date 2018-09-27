@@ -158,7 +158,10 @@ void main()
 	int k = 3;
 	while (cin.get(c))
 	{
-		if(isUpper(c) && c+k<='ß')
+		if (isUpper(c) && c + k <= 'ß')
+		{
+
+		}
 
 	}
 	//while (!in1_file.eof() || !in2_file.eof())
