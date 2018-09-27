@@ -124,45 +124,69 @@ void check_files()
 void statistik()
 {
 	char str[200];
+	char s = 'я';
+	//cout << (int) s << endl;
+
+	/*for (int i = 0; i <= 255; i++)
+	{
+		cout << i << char(i) << endl;
+	}*/
 	while (!in_file.eof())
 	{
 		in_file.getline(str, 200);
 		for (int i = 0; i < strlen(str); i++)
 		{
-			cout << int(str[i]) << " ";
-
+			if (int(str[i])<252)
+				cout << char (int (str[i]+3)) << " ";
+			else cout << char(int(str[i] + 3 - 31)) << " ";
 		}
 	}
 }
-
+bool isUpper(char c)
+{
+	return((c >= 'А' || c <= 'Я'));
+}
+bool isLower(char c)
+{
+	return((c >= 'а' || c <= 'я'));
+}
 void main()
 {
-	string s1, s2;
+	//string s1, s2;
 	setlocale(LC_ALL, "Rus");
-	while (!in1_file.eof() || !in2_file.eof())
+	char c;
+	int k = 3;
+	while (cin.get(c))
 	{
-		getline(in1_file, s1);
-		getline(in2_file, s2);
-		if (s1 == s2)
-			continue;
-		else
-		{
-			if (in1_file.eof() && in2_file.eof()) cout << s1 << endl << s2 << endl; else {
-				if (!in1_file.eof())
-					cout << s1 << endl;
-
-				if (!in2_file.eof())
-					cout << s2 << endl;
-			}
-		}
-
+		if(isUpper(c) && c+k<='Я')
 
 	}
+	//while (!in1_file.eof() || !in2_file.eof())
+	//{
+	//	getline(in1_file, s1);
+	//	getline(in2_file, s2);
+	//	if (s1 == s2)
+	//		continue;
+	//	else
+	//	{
+	//		/*if (in1_file.eof() && in2_file.eof())  else {*/
+	//		if (!in1_file.eof())
+	//			cout << s1 << endl;
+
+	//		if (!in2_file.eof())
+	//			cout << s2 << endl;
+	//			else
+	//				cout << s1 << " " << s2 ;
+	//		
+	//	}
+
+
+	//}
 
 
 
 
-	//statistik();
+	statistik();
 	//char str[200];
 	//int h = 0 /*счетчик для количество строк*/, m = 0;
 	//while (!in_file.eof())
